@@ -1,7 +1,10 @@
 import { Button, Container, Nav, Navbar as NavBarBs } from "react-bootstrap"
 import { NavLink } from "react-router-dom"
+import { useShoppingCart } from "../hooks/useShoppingCart"
 
 export function NavBar() {
+    const { openCart, cartQuantity} = useShoppingCart();
+    
     return (
         <NavBarBs sticky="top" className="bg-white shadow-sm mb-3">
             <Container>
@@ -19,7 +22,8 @@ export function NavBar() {
                 <Button 
                     style={{ width: "3rem", height: "3rem", position: "relative"}}
                     variant="outline-primary"
-                    className="rounded-circle">
+                    className="rounded-circle"
+                    onClick={openCart}>
                         <svg fill="Blue" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 902.86 902.86" xmlSpace="preserve">
                                 <path d="M671.504,577.829l110.485-432.609H902.86v-68H729.174L703.128,179.2L0,178.697l74.753,399.129h596.751V577.829z
                                     M685.766,247.188l-67.077,262.64H131.199L81.928,246.756L685.766,247.188z"/>
@@ -31,7 +35,7 @@ export function NavBar() {
                                     M619.162,716.897c0,22.467-18.277,40.744-40.743,40.744s-40.743-18.277-40.743-40.744c0-22.465,18.277-40.742,40.743-40.742
                                     S619.162,694.432,619.162,716.897z"/>
                         </svg>
-                        <div className="rounded-circle bg-danger d-flex justify-content-center align-items-center" style={{color: "white", width: "1.5rem", height: "1.5rem", position: "absolute", bottom: "0", right: "0", transform: "translate(25%, 25%)"}}>1</div>
+                        <div className="rounded-circle bg-danger d-flex justify-content-center align-items-center" style={{color: "white", width: "1.5rem", height: "1.5rem", position: "absolute", bottom: "0", right: "0", transform: "translate(25%, 25%)"}}>{cartQuantity}</div>
                     </Button>
             </Container>
 
