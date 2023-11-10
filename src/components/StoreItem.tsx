@@ -1,6 +1,7 @@
 import { Button, Card } from "react-bootstrap"
 import { formatCurrency } from "../utils/formatCurrency"
 import { useShoppingCart } from "../hooks/useShoppingCart"
+import { StarRating } from "./StarRating"
 
 type StoreItemProps = {
     id: string
@@ -13,8 +14,9 @@ type StoreItemProps = {
 
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function StoreItem({ id, name, category, price, imgUrl, rating }: StoreItemProps) {
+export function StoreItem({ id, name, price, imgUrl, rating }: StoreItemProps) {
     const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart } = useShoppingCart();
+    
     
     const quantity = getItemQuantity(id);
     return (
@@ -22,9 +24,13 @@ export function StoreItem({ id, name, category, price, imgUrl, rating }: StoreIt
             <Card.Img variant="top" src={imgUrl} height="200px" style={{objectFit: "cover"}} />
             <Card.Body className="d-flex flex-column">
                 <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
-                    <span className="fs-4">{ name }</span>
+                    <span className="fs-5">{ name }</span>
                     <span className="ms-2 text-muted">{ formatCurrency(price) }</span>
                 </Card.Title>
+                <Card.Subtitle className="mb-2 d-flex align-items-baseline">
+                    <StarRating rating={rating}></StarRating>
+                    <span className="ms-1">Rating</span>
+                </Card.Subtitle>
                 <div className="mt-auto">
                     {quantity === 0 ? (
                         <Button className="w-100" onClick={() => increaseCartQuantity(id)}>+ Add to Cart</Button>
