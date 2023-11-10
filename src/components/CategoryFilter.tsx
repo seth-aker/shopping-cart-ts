@@ -1,11 +1,30 @@
 import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Form } from "react-bootstrap";
 import { topTenCategories } from "../data/amazonCategories";
 
-export function CategoryFilter() {
+type CategoryFilterProps = {
+    addCategoryFilter: (category: string) => void,
+    removeCategoryFilter: (category: string) => void,
+}
+
+export function CategoryFilter({addCategoryFilter, removeCategoryFilter}: CategoryFilterProps) {
+    function handleFilter({target}: React.ChangeEvent<HTMLInputElement>) {
+        if(target.checked) {
+            addCategoryFilter(target.value)
+        } else {
+            removeCategoryFilter(target.value)
+        }
+    }
 
     const categoryFilters = topTenCategories.map((category, i) => {
             return (
-                <Form.Check name="category-filters" className="ms-2 me-3" type="checkbox" label={category} key={`checkbox-${i}`}></Form.Check>
+                <Form.Check 
+                    name="category-filters" 
+                    className="ms-2 me-3" 
+                    type="checkbox" 
+                    label={category} 
+                    key={`checkbox-${i}`}
+                    value={category} 
+                    onChange={handleFilter}></Form.Check>
             )
             
         })

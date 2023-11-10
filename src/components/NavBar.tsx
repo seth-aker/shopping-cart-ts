@@ -24,7 +24,7 @@ export function NavBar() {
                     variant="outline-primary"
                     className="rounded-circle"
                     onClick={openCart}>
-                        <svg fill="Blue" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 902.86 902.86" xmlSpace="preserve">
+                        <svg fill="#3B71CA" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 902.86 902.86" xmlSpace="preserve">
                                 <path d="M671.504,577.829l110.485-432.609H902.86v-68H729.174L703.128,179.2L0,178.697l74.753,399.129h596.751V577.829z
                                     M685.766,247.188l-67.077,262.64H131.199L81.928,246.756L685.766,247.188z"/>
                                 <path d="M578.418,825.641c59.961,0,108.743-48.783,108.743-108.744s-48.782-108.742-108.743-108.742H168.717
