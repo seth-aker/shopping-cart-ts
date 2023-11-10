@@ -29,7 +29,7 @@ export function SearchBar() {
                 <Button onClick={search}>Search</Button>
             </InputGroup>
         </Form>
-        {buttonClicked && <Navigate to={"/store"} />}
+        {buttonClicked && <Navigate to={"/shopping-cart-ts/store"} />}
         </>
     )
 }

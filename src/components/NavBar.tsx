@@ -9,13 +9,13 @@ export function NavBar() {
         <NavBarBs sticky="top" className="bg-white shadow-sm mb-3">
             <Container>
                 <Nav className="me-auto">
-                    <Nav.Link as={NavLink} to="/" >
+                    <Nav.Link as={NavLink} to="/shopping-cart-ts/" >
                         Home
                     </Nav.Link>
-                    <Nav.Link as={NavLink} to="/store" >
+                    <Nav.Link as={NavLink} to="/shopping-cart-ts/store" >
                         Store
                     </Nav.Link>
-                    <Nav.Link as={NavLink} to="/about" >
+                    <Nav.Link as={NavLink} to="/shopping-cart-ts/about" >
                         About
                     </Nav.Link>
                 </Nav>
